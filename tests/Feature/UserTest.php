@@ -9,7 +9,7 @@ use Database\Seeders\CabangSeeder;
 use Database\Seeders\OtoritasSeeder;
 use Tests\TestCase;
 
-class TestUser extends TestCase
+class UserTest extends TestCase
 {
     public function test_create_user(): void
     {
