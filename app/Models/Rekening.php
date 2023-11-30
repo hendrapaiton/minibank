@@ -5,26 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Cabang extends Model
+class Rekening extends Model
 {
-    protected $table = "cabang";
+    protected $table = "rekening";
     protected $primaryKey = "id";
     protected $keyType = "int";
     public $incrementing = true;
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
-        "nama"
+        "nomor",
+        "saldo"
     ];
 
-    public function users(): HasMany {
-        return $this->hasMany(User::class);
-    }
-
-    public function rekening(): HasMany {
-        return $this->hasMany(Rekening::class);
+    public function cabang(): BelongsTo
+    {
+        return $this->belongsTo(Cabang::class, 'cabang_id', 'id');
     }
 }
