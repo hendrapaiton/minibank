@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Rekening extends Model
 {
@@ -23,5 +24,10 @@ class Rekening extends Model
     public function cabang(): BelongsTo
     {
         return $this->belongsTo(Cabang::class, 'cabang_id', 'id');
+    }
+
+    public function nasabah(): HasOne
+    {
+        return $this->hasOne(Nasabah::class);
     }
 }
