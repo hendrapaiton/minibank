@@ -54,4 +54,19 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Cabang::class, 'cabang_id', 'id');
     }
+
+    public function supervisor(): HasMany
+    {
+        return $this->hasMany(Harian::class);
+    }
+
+    public function teller(): HasMany
+    {
+        return $this->hasMany(Harian::class);
+    }
+
+    public function tunai(): HasMany
+    {
+        return $this->hasMany(Tunai::class);
+    }
 }

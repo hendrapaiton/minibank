@@ -30,4 +30,9 @@ class Rekening extends Model
     {
         return $this->hasOne(Nasabah::class);
     }
+
+    public function tunai(): HasMany
+    {
+        return $this->hasMany(Tunai::class);
+    }
 }
